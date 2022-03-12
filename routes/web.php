@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JuryController;
+use App\Http\Controllers\ConcourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resources([
+            'concours' => ConcourController::class,
+            'enseignants' => JuryController::class
+        ]);
+    });
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +40,6 @@ Route::get('register/enseignant', function(){
 Route::get('register/etudiant', function(){
     return view('auth.register_etudiant');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -11,7 +11,7 @@
                 <div class="main-part">                           
                     <div class="method-account">
                         <h2 class="login">Connexion</h2>
-                        <form method="POST" action="/home">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form_inputs">
                                 <input type="text" name="email" placeholder="Saisir votre email">

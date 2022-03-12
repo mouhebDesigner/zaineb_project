@@ -20,6 +20,15 @@
             </p>
         </a>
     </li>
+    <li class="nav-item @if(Request::is('admin/enseignants*')) active @endif">
+        <a href="{{ url('admin/enseignants') }}" class="nav-link ">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+            Liste des enseignants
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
     <li class="nav-item @if(Request::is('admin/concours*')) active @endif">
         <a href="{{ url('admin/concours') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>
