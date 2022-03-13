@@ -97,7 +97,7 @@
         <script src="{{ asset('front/assets/js/main.js') }}"></script>
         @yield('js')
 
-       
+        
     </body>
 
 <!-- Mirrored from keenitsolutions.com/products/html/educavo/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Apr 2021 19:19:20 GMT -->
