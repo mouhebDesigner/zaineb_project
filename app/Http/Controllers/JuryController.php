@@ -140,7 +140,10 @@ class JuryController extends Controller
     {
         $enseignant->delete();
         
-        return redirect('admin/enseignants')->with('deleted', 'L\'enseignant a été supprimer avec succés');
+         return response()->json([
+            "deleted" => "L'enseignant a été supprimer avec succés"
+        ]);
+        
         
     }
 }

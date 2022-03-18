@@ -13,7 +13,7 @@
                 style="visibility: visible; animation-duration: 3000ms; animation-delay: 300ms; animation-name: fadeInLeft;">Bienvenue a notre université </h1>
                 <div class="desc mb-35 wow wow fadeInRight" data-wow-delay="900ms" data-wow-duration="3000ms" style="visibility: visible; animation-duration: 3000ms; animation-delay: 900ms; animation-name: fadeInRight;">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sit est asperiores veniam, praesentium necessitatibus quasi eius accusamus consectetur dolorum omnis at tempora illo natus consequatur blanditiis veritatis distinctio placeat.
+                        Site concour de compétition des projets s'adresse aux étudiants sous la direction de professeurs pour leurs permettre et  discuter de leurs projets
                     </p>
                 </div>
             </div>

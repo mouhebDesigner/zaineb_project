@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConcourController;
 
 /*
@@ -19,7 +20,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resources([
             'concours' => ConcourController::class,
-            'enseignants' => JuryController::class
+            'enseignants' => JuryController::class,
+            'users' => UserController::class
         ]);
     });
 });
