@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
                 "prenom" => "zaineb",
                 "email" => "zaineb@gmail.com",
                 "numtel" => "12345678",
-                "date_naissance" => "1999-10-15",
                 "genre" => "female",
                 "role" => "admin",
                 "password" => Hash::make("adminadmin"),

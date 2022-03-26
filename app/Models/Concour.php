@@ -9,7 +9,7 @@ class Concour extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titre', 'description','date_fin'];
+    protected $fillable = ['titre', 'description','date_fin', 'date_debut', 'prix'];
 
     public function price(){
         return $this->belongsTo(Price::class);

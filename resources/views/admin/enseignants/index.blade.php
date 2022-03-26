@@ -60,11 +60,10 @@
                                                             Email
                                                         </th>
                                                         <th>
-                                                            date de creation
+                                                            Téléphone
                                                         </th>
-                                                        
                                                         <th>
-                                                            date de modification
+                                                            Spécialité  
                                                         </th>
                                                         <th>
                                                             Action

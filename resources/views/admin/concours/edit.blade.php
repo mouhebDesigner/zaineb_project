@@ -35,15 +35,30 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">description</label>
-                                    <textarea class="form-control" name="description" value="{{ $concour->description }}" id="description" placeholder="Saisir libellé de concours">{{ old('description') }}</textarea>
+                                    <textarea class="form-control" name="description" value="{{ $concour->description }}" id="description" placeholder="Saisir libellé de concours">{{ $concour->description }}</textarea>
                                     @error('description')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                   <label for="date_debut">Date de début</label>
+                                   <input type="date" class="form-control" name="date_debut" value="{{ $concour->date_debut }}" id="date_debut" placeholder="Saisir date_debut de concours">
+                                   @error('date_debut')
+                                       <p class="text-danger">{{ $message }}</p>
+                                   @enderror
+                               </div>
+                                <div class="form-group">
                                     <label for="date_fin">Date fin</label>
                                     <input type="date" class="form-control" name="date_fin" value="{{ $concour->date_fin }}" id="date_fin" placeholder="Saisir date_fin de concours">
                                     @error('date_fin')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="prix">Prix</label>
+                                    <input type="text" class="form-control" name="prix" value="{{ $concour->prix }}" id="prix" placeholder="Saisir prix de concours">
+                                    @error('prix')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

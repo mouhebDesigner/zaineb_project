@@ -5,7 +5,7 @@
         <a href="{{ url('home') }}" class="nav-link ">
             <i class="nav-icon fas fa-home"></i>
             <p>
-                Acceuil
+                Projets
                 <i class="right fas fa-angle-left"></i>
             </p>
         </a>
@@ -24,7 +24,7 @@
         <a href="{{ url('admin/enseignants') }}" class="nav-link ">
             <i class="nav-icon fas fa-user"></i>
             <p>
-            Liste des enseignants
+            Membre jury
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
@@ -38,13 +38,5 @@
             </p>
         </a>
     </li>
-    <li class="nav-item @if(Request::is('admin/prix*')) active @endif">
-        <a href="{{ url('admin/prix') }}" class="nav-link ">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-            Gérer les prix
-            <i class="right fas fa-angle-left"></i>
-            </p>
-        </a>
-    </li>
+    
 </ul>

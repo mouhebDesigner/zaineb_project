@@ -52,6 +52,7 @@ class ConcourController extends Controller
      */
     public function store(ConcourRequest $request)
     {
+        dd($request->description);
         $concour = Concour::create($request->all());
 
        
@@ -81,6 +82,7 @@ class ConcourController extends Controller
      */
     public function update(ConcourRequest $request, concour $concour)
     {
+
         $concour->update($request->all());
 
         

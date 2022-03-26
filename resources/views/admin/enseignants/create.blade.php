@@ -61,12 +61,12 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_naissance">date naissance  <span
+                                    <label for="specialite">Spécialité <span
                                             style="color: red">* </span></label>
-                                    <input type="date" class="form-control" name="date_naissance"
-                                        value="{{ old('date_naissance') }}" id="date_naissance"
+                                    <input type="text" class="form-control" name="specialite"
+                                        value="{{ old('specialite') }}" id="specialite"
                                         placeholder="Saisir date de naissance ">
-                                    @error('date_naissance')
+                                    @error('specialite')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

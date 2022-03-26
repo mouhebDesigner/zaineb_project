@@ -58,7 +58,7 @@ class JuryController extends Controller
         $enseignant->email = $request->email;
         $enseignant->password = Hash::make($request->password);
         $enseignant->numtel = $request->numtel;
-        $enseignant->date_naissance = $request->date_naissance;
+        $enseignant->specialite = $request->specialite;
         $enseignant->role = "jury";
         $enseignant->approuver = 1;
         
@@ -111,7 +111,7 @@ class JuryController extends Controller
             "email" =>  "required | string | email | max:255 | unique:users,email,".$enseignant->id.",id",
             'nom' => 'required | string | max:255',
             'prenom' => 'required | string | max:255',
-            'date_naissance' => 'required',
+            'specialite' => 'required',
         ]);
 
 
@@ -120,7 +120,7 @@ class JuryController extends Controller
         $enseignant->email = $request->email;
         $enseignant->password = Hash::make($request->password);
         $enseignant->numtel = $request->numtel;
-        $enseignant->date_naissance = $request->date_naissance;
+        $enseignant->specialite = $request->specialite;
       
 
         $enseignant->save();

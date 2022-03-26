@@ -17,8 +17,9 @@ class CreateConcoursTable extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description');
+            $table->date('date_debut');
             $table->date('date_fin');
-            $table->foreignId('price_id')->nullable()->constrained('prices')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('prix');
             $table->timestamps();
         });
     }

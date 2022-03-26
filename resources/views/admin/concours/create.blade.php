@@ -40,9 +40,23 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_fin">Date fin</label>
+                                    <label for="date_debut">Date de début</label>
+                                    <input type="date" class="form-control" name="date_debut" value="{{ old('date_debut') }}" id="date_debut" placeholder="Saisir date_debut de concours">
+                                    @error('date_debut')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="date_fin">Date de fin</label>
                                     <input type="date" class="form-control" name="date_fin" value="{{ old('date_fin') }}" id="date_fin" placeholder="Saisir date_fin de concours">
                                     @error('date_fin')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix">Prix</label>
+                                    <input type="text" class="form-control" name="prix" value="{{ old('prix') }}" id="prix" placeholder="Saisir prix de concours">
+                                    @error('prix')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
