@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Concour;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 use App\Http\Requests\ConcourRequest;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -52,11 +53,29 @@ class ConcourController extends Controller
      */
     public function store(ConcourRequest $request)
     {
-        dd($request->description);
         $concour = Concour::create($request->all());
-
-       
-
+        if($request->hasFile('images')){
+            foreach($request->images as $key => $image){
+               
+                $resource = new Resource();
+                $resource->path = $image->store('resources');
+                $resource->type = "image";
+                $resource->concour_id = $concour->id;
+                $resource->save();
+            }
+        }
+        if($request->hasFile('documents')){
+            foreach($request->documents as $key => $document){
+               
+                $resource = new Resource();
+                $resource->path = $document->storeAs(
+                    'resources', $document->getClientOriginalName()
+                );
+                $resource->type = "attachment";
+                $resource->concour_id = $concour->id;
+                $resource->save();
+            }
+        }
         return redirect('admin/concours')->with('created', 'La concour a été créé avec succés');
     }
 
@@ -72,6 +91,16 @@ class ConcourController extends Controller
     {
         return view('admin.concours.edit', compact('concour'));
     }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(concour $concour)
+    {
+        return view('admin.concours.show', compact('concour'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -85,6 +114,30 @@ class ConcourController extends Controller
 
         $concour->update($request->all());
 
+        if($request->hasFile('images')){
+            $concour->deleteImages();
+            foreach($request->images as $key => $image){
+                
+                $resource = new Resource();
+                $resource->path = $image->store('resources');
+                $resource->type = "image";
+                $resource->concour_id = $concour->id;
+                $resource->save();
+            }
+        }
+        if($request->hasFile('documents')){
+            $concour->deleteDocuments();
+            foreach($request->documents as $key => $document){
+               
+                $resource = new Resource();
+                $resource->path = $document->storeAs(
+                    'resources', $document->getClientOriginalName()
+                );
+                $resource->type = "attachment";
+                $resource->concour_id = $concour->id;
+                $resource->save();
+            }
+        }
         
 
         return redirect()->route('admin.concours.index')->with('updated', 'La concour a été modifié avec succés');
@@ -117,5 +170,10 @@ class ConcourController extends Controller
             "deleted" => "concours are deleted"
         ]);
         
+    }
+
+    public function getProjets(Concour $concour){
+        $projets = $concour->projets()->get();
+        return view('admin.projets.index', compact('projets'));
     }
 }

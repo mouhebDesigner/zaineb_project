@@ -65,20 +65,14 @@
                                                             Titre
                                                         </th>
                                                         <th>
+                                                            Date début
+                                                        </th>
+                                                        <th>
                                                             Date fin
-                                                        </th>
-                                                        
-                                                        <th>
-                                                            Date de création
-                                                        </th>
-                                                        
-                                                        <th>
-                                                            Date de modification
                                                         </th>
                                                         <th>
                                                             Action
                                                         </th>
-
                                                     </tr>
 
                                                 </thead>
@@ -87,17 +81,20 @@
                                                         <tr>
                                                             <td>{{ $concour->id }}</td>
                                                             <td>{{ $concour->titre }}</td>
+                                                            <td>{{ $concour->date_debut }}</td>
                                                             <td>{{ $concour->date_fin }}</td>
-                                                            <td>{{ $concour->created_at }}</td>
-                                                            <td>{{ $concour->updated_at }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="concour" data-url="{{ route('admin.concours.destroy', ['concour' => $concour]) }}" >
+                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="concour" title="Supprimer concour" data-url="{{ route('admin.concours.destroy', ['concour' => $concour]) }}" >
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
-                                                                    <a href="{{ url('admin/concours/'.$concour->id.'/edit') }}" data-model="concour" class="edit-confirm btn-edit">
+                                                                    <a href="{{ url('admin/concours/'.$concour->id.'/edit') }}" data-model="concour" title="Modifier concour" class="edit-confirm btn-edit">
                                                                         <i class="fa fa-pen"></i>
+                                                                    </a>
+
+                                                                    <a href="{{ url('admin/concours/'.$concour->id) }}"  title="Voir détail" class="btn-edit">
+                                                                        <i class="fa fa-info"></i>
                                                                     </a>
                                                                  
                                                                 </div>

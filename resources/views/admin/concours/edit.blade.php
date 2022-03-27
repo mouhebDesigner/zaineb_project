@@ -54,6 +54,37 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="documents">Documents (PDF)</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="documents[]" class="custom-file-input" onchange="javascript:updateDocument()"  id="documents" multiple="">
+                                            <label class="custom-file-label" id="documentName" for="documents">Choisir documents</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Télécharger</span>
+                                        </div>
+                                    </div>
+                                    @error('documents.*')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="images">Images</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="images[]" class="custom-file-input" onchange="javascript:updateImage()" id="images" multiple="">
+                                            <label class="custom-file-label" id="imageName" for="images">Choisir images</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Télécharger</span>
+                                        </div>
+                                    </div>
+                                    @error('images.*')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
                                
                                 <div class="form-group">
                                     <label for="prix">Prix</label>

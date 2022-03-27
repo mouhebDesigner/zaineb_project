@@ -21,7 +21,7 @@
     
     
   </head>
-<body class="dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-closed sidebar-collapse" style="height: auto;">
+<body class="light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-closed sidebar-collapse" style="height: auto;">
 
     @yield('content')
     <!-- jQuery -->
@@ -99,6 +99,23 @@
               });
           });
       });
+
+    updateDocument = function() {
+        var input = document.getElementById('documents');
+        var output = document.getElementById('documentName');
+        output.innerText = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            output.innerHTML += input.files.item(i).name + '/';
+        }
+    }
+    updateImage = function() {
+        var input = document.getElementById('images');
+        var output = document.getElementById('imageName');
+        output.innerText = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            output.innerHTML += input.files.item(i).name + '/';
+        }
+    }
     </script>
 </body>
 

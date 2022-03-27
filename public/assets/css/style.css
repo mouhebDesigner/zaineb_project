@@ -63,3 +63,23 @@
     align-items: center;
     color: white;
 }
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #16181b !important;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+
+td div button:hover, td div a:hover, .card-tools button:hover, .card-tools a:hover{
+    color: #38f2b9;
+    text-decoration: none;
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.card-tools{
+    width: 100px;
+}

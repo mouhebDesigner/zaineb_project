@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Resource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
             'enseignants' => JuryController::class,
             'users' => UserController::class
         ]);
+        Route::get('concours/{concour}/projet', [ConcourController::class, 'getProjets'])->name('concours.listerProjet');
     });
 });
 
@@ -45,3 +47,10 @@ Route::get('register/etudiant', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('download/{id}', function($id){
+    $resource = Resource::find($id);
+    $filepath = public_path('storage/').$resource->path;
+    return Response::download($filepath);
+})->name('download.file');
