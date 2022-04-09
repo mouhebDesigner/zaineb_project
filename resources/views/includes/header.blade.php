@@ -29,12 +29,22 @@
                                 margin-right: 25px;
                                 align-items: center;
                             ">
-                                <img src="{{ asset('storage/'.Auth::user()->photo) }}" alt="" style="
-                                    width: 50px;
-                                    height: 50px;
-                                    border-radius: 50px;
-                                    margin-right: 10px;
-                                ">
+                                @if(Auth::user()->avatar != null)
+                                azdazdadazd
+                                    <img src="{{ asset('storage/'.Auth::user()->avatar) }}" alt="" style="
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 50px;
+                                        margin-right: 10px;
+                                    ">
+                                @else 
+                                    <img src="{{ asset('front/assets/images/avatar.png') }}" alt="" style="
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 50px;
+                                        margin-right: 10px;
+                                    ">
+                                @endif
                                 {{  Auth::user()->nom }} {{ Auth::user()->prenom }}
                             </a>
 
@@ -77,20 +87,19 @@
                                     <i class="fa fa-bars"></i>
                                 </a>
                             </div>
-                            @guest 
                             <nav class="rs-menu rs-menu-close" style="height: 0px;">
                                 <ul class="nav-menu">
                                     <li class="menu-item-has-children">
                                         <a href="{{ url('/') }}" class="active">Accueil</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#sections">Projet</a>
+                                        <a href="#sections" class="@if(Request::is('projets')) active @endif">Projet</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#formations">Concours</a>
+                                        <a href="#formations" class="@if(Request::is('concours')) active @endif">Concours</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#enseignant">A propos</a>
+                                        <a href="#enseignant" class="@if(Request::is('propos')) active @endif">A propos</a>
                                     </li>
                                     
                                   
@@ -99,30 +108,7 @@
                                     </li>
                                 </ul> <!-- //.nav-menu -->
                             </nav>  
-                            @else 
-                            <nav class="rs-menu rs-menu-close" style="height: 0px;">
-                                <ul class="nav-menu">
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('/') }}" class="@if(Request::is('home')) active @endif">Accueil</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('/modules') }}" class="@if(Request::is('modules')) active @endif">Modules</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('/matieres') }}" class="@if(Request::is('matieres*')) active @endif">Matière</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('formations') }}" class="@if(Request::is('formations*')) active @endif">Formations</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('forums') }}" class="@if(Request::is('forum')) active @endif">forum</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ url('contact') }}" class="@if(Request::is('contact')) active @endif">Contact</a>
-                                    </li>
-                                </ul> <!-- //.nav-menu -->
-                            </nav>  
-                            @endif                                       
+                                                                
                         </div> <!-- //.main-menu -->                                
                     </div>
                 </div>

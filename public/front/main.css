@@ -29,13 +29,12 @@ select{
 }
 
 .error_input_message{
+    text-align: left;
+    color: #dd3737;
+    font-weight: 500;
     padding: 0;
     margin: 0;
-    position: relative;
-    right: 55px;
-    bottom: 26px;
-    color: #bd3636;
-    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .question{

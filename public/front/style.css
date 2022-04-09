@@ -6228,15 +6228,15 @@ body .modal-backdrop {
   font-weight: 600;
   margin-bottom: 15px;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box {
+.rs-popular-courses.course-view-style .filter-form .radio-box, .radio-box {
   position: relative;
   margin-left: 25px;
   margin-bottom: 12px;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box label {
+.rs-popular-courses.course-view-style .filter-form .radio-box label, .radio-box label {
   position: relative;
   display: block;
-  width: 100%;
+  width: 0%;
   line-height: 1;
   padding-left: 25px;
   cursor: pointer;
@@ -6247,7 +6247,7 @@ body .modal-backdrop {
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box label:before {
+.rs-popular-courses.course-view-style .filter-form .radio-box label:before, .radio-box label:before {
   position: absolute;
   left: 0;
   top: 3px;
@@ -6263,7 +6263,7 @@ body .modal-backdrop {
   transition: all 300ms ease;
   border: 1px solid transparent;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box label:after {
+.rs-popular-courses.course-view-style .filter-form .radio-box label:after, .radio-box label:after {
   position: absolute;
   left: 0px;
   top: 0;
@@ -6283,21 +6283,21 @@ body .modal-backdrop {
   -o-transition: max-width 500ms ease;
   transition: max-width 500ms ease;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label {
+.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label, .radio-box input[type="radio"]:checked + label {
   border-color: #25a9e0;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"] {
-  display: none;
+.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"], .radio-box input[type="radio"] {
+  display: none !important;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label:before {
+.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label:before, .radio-box input[type="radio"]:checked + label:before {
   border: 5px solid #21a7d0;
   background: #ffffff;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label:after {
+.rs-popular-courses.course-view-style .filter-form .radio-box input[type="radio"]:checked + label:after, .radio-box input[type="radio"]:checked + label:after {
   max-width: 20px;
   opacity: 1;
 }
-.rs-popular-courses.course-view-style .filter-form .radio-box:last-child {
+.rs-popular-courses.course-view-style .filter-form .radio-box:last-child, .radio-box:last-child {
   margin-bottom: 0px;
 }
 .rs-popular-courses.course-view-style .filter-form .check-box {
@@ -12726,12 +12726,12 @@ body .modal-backdrop {
 }
 .rs-login .noticed .main-part .method-account label {
   font-size: 15px;
-  line-height: 30px;
+  /* line-height: 30px; */
   font-weight: 600;
   color: #505050;
 }
 .rs-login .noticed .main-part .method-account input {
-  margin-bottom: 30px;
+  margin-top: 30px;
   font-size: 15px;
   font-weight: 400;
   color: #505050;
