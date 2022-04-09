@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConcourController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::get('register/etudiant', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Contact admin
+Route::resource('contact', ContactController::class);
 
 
 Route::get('download/{id}', function($id){

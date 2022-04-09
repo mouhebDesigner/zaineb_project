@@ -11,7 +11,7 @@
                         </li>
                         <li>
                             <i class="flaticon-location"></i>
-                            Campus universitaire – BP 122, 6033 Cité El Amel 4, Gabès, TUNISIE
+                              Gabès, TUNISIE
                         </li>
                     </ul>
                 </div>
