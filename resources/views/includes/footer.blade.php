@@ -19,15 +19,14 @@
                             <a href="{{ url('/') }}" class="active">Accueil</a>
                         </li>
                         <li class="">
-                            <a href="#sections">Projets</a>
+                            <a href="#formations">Concours</a>
                         </li>
                         <li class="">
-                            <a href="#formations">Concours</a>
+                            <a href="#sections">Jury</a>
                         </li>
                         <li class="">
                             <a href="#enseignant">A propos</a>
                         </li>
-                        
                         <li class="">
                             <a href="{{ url('contact') }}" class="@if(Request::is('contact')) active @endif">Contact</a>
                         </li>

@@ -6,11 +6,11 @@
         <i class="nav-icon fas fa-book"></i>
         </span>
 
-        <div class="info-box-content">
-          <span class="info-box-text text-white">
+        <div class="info-box-content" >
+          <span class="info-box-text text-dark">
               Les Concours
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>
@@ -24,11 +24,11 @@
         <i class="nav-icon fas fa-book"></i>
         </span>
 
-        <div class="info-box-content">
-          <span class="info-box-text text-white">
+        <div class="info-box-content" >
+          <span class="info-box-text text-dark">
               Les Etudiants
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>
@@ -42,11 +42,11 @@
         <i class="nav-icon fas fa-book"></i>
         </span>
 
-        <div class="info-box-content">
-          <span class="info-box-text text-white">
+        <div class="info-box-content" >
+          <span class="info-box-text text-dark">
               Jury
           </span>
-          <span class="info-box-number text-white">
+          <span class="info-box-number text-dark">
               12
           </span>
         </div>

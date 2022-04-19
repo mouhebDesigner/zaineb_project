@@ -15,6 +15,10 @@ select{
     box-shadow: 0 0 30px #eee;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .alert_success{
     background: #166bb3;
     color: white;
@@ -322,4 +326,10 @@ body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-fo
 .name_d h4{
     padding: 0;
     margin: 0;
+}
+.course-price{
+    background: #273c66;
+    text-align: center;
+    color: white;
+    padding: 15px;
 }

@@ -12,12 +12,20 @@ class UserFactory extends Factory
      *
      * @return array
      */
+    function random_pic($dir)
+    {
+        $files = glob($dir . '/*.*');
+        $file = array_rand($files);
+        return $files[$file];
+    }
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'nom' => $this->faker->name(),
+            'prenom' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+            "avatar" => str_replace("public/images/", "", $this->random_pic('public/images/resources')),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];

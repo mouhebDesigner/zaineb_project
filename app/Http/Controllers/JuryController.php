@@ -61,7 +61,9 @@ class JuryController extends Controller
         $enseignant->specialite = $request->specialite;
         $enseignant->role = "jury";
         $enseignant->approuver = 1;
-        
+        if($request->hasFile('avatar')){
+            $enseignant->avatar = $request->avatar->store('resources');
+        }
         $enseignant->save();
 
 

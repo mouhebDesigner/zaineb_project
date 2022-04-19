@@ -4,8 +4,10 @@ use App\Models\Resource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ConcourController;
+use App\Http\Controllers\Admin\ConcourController;
+use App\Http\Controllers\ConcourController as ConcourEtudiant;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +27,12 @@ Route::middleware(['auth'])->group(function () {
             'enseignants' => JuryController::class,
             'users' => UserController::class
         ]);
+        Route::resource('contacts', ContactAdminController::class)->only(['index', 'show', 'destroy']);
         Route::get('concours/{concour}/projet', [ConcourController::class, 'getProjets'])->name('concours.listerProjet');
     });
 });
+Route::get('concours/{id}', [ConcourEtudiant::class, 'show']);
+Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer']);
 
 Route::get('/', function () {
     return view('welcome');

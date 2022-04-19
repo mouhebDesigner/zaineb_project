@@ -71,6 +71,21 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="images">Avatar</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="avatar" class="custom-file-input" onchange="javascript:updateImage()" id="images">
+                                            <label class="custom-file-label" id="imageName" for="images">Choisir images</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Télécharger</span>
+                                        </div>
+                                    </div>
+                                    @error('avatar')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="password">Mot de passe  <span
                                             style="color: red">* </span></label>
                                     <input type="password" class="form-control" name="password"
