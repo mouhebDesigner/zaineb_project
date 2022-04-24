@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Concour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Auth;
 class ConcourController extends Controller
 {
     

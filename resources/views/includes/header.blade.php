@@ -96,13 +96,8 @@
                                         <a href="#concours" class="@if(Request::is('concours')) active @endif">Concours</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#jury" class="@if(Request::is('jury')) active @endif">Jury</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
                                         <a href="#enseignant" class="@if(Request::is('propos')) active @endif">A propos</a>
                                     </li>
-                                    
-                                  
                                     <li class="menu-item-has-children">
                                         <a href="{{ url('contact') }}" class="@if(Request::is('contact')) active @endif">Contact</a>
                                     </li>

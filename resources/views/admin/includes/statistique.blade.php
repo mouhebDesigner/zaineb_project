@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-12 col-sm-6 col-md-3">
-      <a href="javascript:void(0)" class="info-box">
+      <a href="{{ url('admin/concours') }}" class="info-box">
         <span class="info-box-icon bg-info elevation-1">
         <i class="nav-icon fas fa-book"></i>
         </span>
@@ -19,7 +19,7 @@
       <!-- /.info-box -->
     </div>
     <div class="col-12 col-sm-6 col-md-3">
-      <a href="javascript:void(0)" class="info-box">
+      <a href="{{ url('admin/etudiants') }}" class="info-box">
         <span class="info-box-icon bg-info elevation-1">
         <i class="nav-icon fas fa-book"></i>
         </span>

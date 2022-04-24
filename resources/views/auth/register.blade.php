@@ -49,14 +49,6 @@
                             <div class="form_inputs">
                                 <input type="password" name="password_confirmation" placeholder="Confrimer mot de passe">
                             </div>
-                            <div class="radio-box form-group">
-                                <input type="radio" name="genre" id="type1" value="beginer" checked=""> 
-                                <label for="type1">Male</label>
-                            </div>
-                            <div class="radio-box form-group">
-                                <input type="radio" name="genre" id="type1" value="beginer"> 
-                                <label for="type1">Female</label>
-                            </div>
                             <button type="submit" class="readon submit-btn">Enovyer</button>
                             
                             <div class="last-password">

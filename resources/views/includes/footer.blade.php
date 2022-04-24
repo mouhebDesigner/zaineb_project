@@ -22,9 +22,6 @@
                             <a href="#formations">Concours</a>
                         </li>
                         <li class="">
-                            <a href="#sections">Jury</a>
-                        </li>
-                        <li class="">
                             <a href="#enseignant">A propos</a>
                         </li>
                         <li class="">
