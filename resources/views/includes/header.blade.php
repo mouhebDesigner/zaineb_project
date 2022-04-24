@@ -30,7 +30,6 @@
                                 align-items: center;
                             ">
                                 @if(Auth::user()->avatar != null)
-                                azdazdadazd
                                     <img src="{{ asset('storage/'.Auth::user()->avatar) }}" alt="" style="
                                         width: 50px;
                                         height: 50px;
