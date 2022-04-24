@@ -24,17 +24,17 @@
                         <form method="POST" action="{{ url('contact') }}">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                      <div class="form_inputs">
-                                        <input type="text" name="nom" placeholder="Saisir votre nom" >
+                                        <input type="text" name="nom" placeholder="Nom" >
                                         @error('nom')
                                             <p class="error_input_message">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form_inputs">
-                                        <input type="text" name="numtel" placeholder="Saisir votre numtel" >
+                                        <input type="text" name="numtel" placeholder="Numéro de téléphone" >
                                         @error('numtel')
                                             <p class="error_input_message">{{ $message }}</p>
                                         @enderror
@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form_inputs">
-                                        <input type="email" name="email" placeholder="Saisir votre email" >
+                                        <input type="email" name="email" placeholder="Email" >
                                         @error('email')
                                             <p class="error_input_message">{{ $message }}</p>
                                         @enderror
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form_inputs">
-                                        <input type="text" name="sujet" placeholder="Saisir votre sujet" >
+                                        <input type="text" name="sujet" placeholder="Sujet" >
                                         @error('sujet')
                                             <p class="error_input_message">{{ $message }}</p>
                                         @enderror
@@ -62,7 +62,7 @@
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <div class="form_inputs">
-                                        <textarea name="message" id="" cols="30" rows="10" placeholder="saisir votre message"></textarea>
+                                        <textarea name="message" id="" cols="30" rows="6" placeholder="Message"></textarea>
                                         @error('message')
                                             <p class="error_input_message">{{ $message }}</p>
                                         @enderror
