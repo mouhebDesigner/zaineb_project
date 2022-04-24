@@ -11,8 +11,10 @@
                 <div class="main-part">                           
                     <div class="method-account">
                         <h2 class="login">Participer à un concour</h2>
-                        <form method="POST" action="{{ route('participer') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('participer') }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="concour_id" value="{{ $id }}">
                             <div class="form_inputs">
                                 <input type="text" name="titre" placeholder="Saisir un titre">
                                 @error('titre')
@@ -20,7 +22,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea name="description" id="" cols="30" rows="10" placeholder="Saisir description"></textarea>
                                 @error('description')
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror
@@ -33,21 +35,8 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="readon submit-btn">connecter</button>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Mot de passe oubliè?') }}
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="last-password">
-                                <p>Vous n'avez pas un compte? <a href="{{ url('/register') }}">S'inscrire maintenant</a></p>
-                            </div>
+                            <button type="submit" class="readon submit-btn">Envoyer</button>
+                            
                         </form>
                     </div>
                 </div>

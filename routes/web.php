@@ -4,10 +4,11 @@ use App\Models\Resource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ParticiperController;
+use App\Http\Controllers\ContactAdminController;
 use App\Http\Controllers\Admin\ConcourController;
 use App\Http\Controllers\ConcourController as ConcourEtudiant;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ContactAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::get('concours/{id}', [ConcourEtudiant::class, 'show']);
 Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer']);
-
+Route::post('participer', [ConcourEtudiant::class, 'store']);
 Route::get('/', function () {
     return view('welcome');
 });

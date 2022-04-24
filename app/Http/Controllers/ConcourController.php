@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Projet;
 use App\Models\Concour;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjetRequest;
 
 class ConcourController extends Controller
 {
@@ -23,5 +25,11 @@ class ConcourController extends Controller
 
     public function participer($id){
         return view('concours.participer', compact('id'));
+    }
+
+    public function store(ProjetRequest $request){
+        Projet::create($request->all());
+
+        return redirect('concours/'.$request->concour_id)->with('participer', 'Vous avez participé au concour avec succée');
     }
 }
