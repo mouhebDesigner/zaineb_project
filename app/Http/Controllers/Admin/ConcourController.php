@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
 use App\Models\Concour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
+use App\Http\Requests\ConcourRequest;
+
 class ConcourController extends Controller
 {
     
