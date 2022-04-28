@@ -32,7 +32,7 @@
             <div class="col-lg-4 col-md-6 md-mb-30">
                 <div class="courses-item">
                     <div class="img-part">
-                        <img src="{{ asset('storage/'.$concour->resources()->firstWhere('type', 'image')->path) }}"
+                        <img src="{{ asset($concour->resources()->firstWhere('type', 'image')->path) }}"
                                     alt="">
                         </div>
                     <div class="content-part">

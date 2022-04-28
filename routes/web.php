@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 Route::get('concours/{id}', [ConcourEtudiant::class, 'show']);
-Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer']);
+Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer'])->middleware('auth');
 Route::post('participer', [ConcourEtudiant::class, 'store']);
 Route::get('/', function () {
     return view('welcome');

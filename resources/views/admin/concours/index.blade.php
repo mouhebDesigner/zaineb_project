@@ -35,9 +35,6 @@
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
                                             <h3 class="m-0">Liste des concours</h3>
-                                            <a href="{{ url('admin/concours/create') }}" class="add_button" title="ajouter un concours">
-                                                <i class="fa fa-plus"></i>
-                                            </a>
                                         </div>
                                     </div>
                                 </div>

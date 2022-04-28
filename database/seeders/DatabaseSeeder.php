@@ -26,5 +26,20 @@ class DatabaseSeeder extends Seeder
                 "password" => Hash::make("adminadmin"),
             ]
         ]);
+        DB::table('concours')->insert([
+            [
+                "titre" => "Concour compétition",
+                "description" => "Site concour de compétition des projets s'adresse aux étudiants sous la direction de professeurs
+                    pour leurs permettre et discuter de leurs projets",
+                "prix" => "2000DT",
+            ]
+        ]);
+        DB::table('resources')->insert([
+            [
+                "path" => "front/concour.png",
+                "type" => "image",
+                "concour_id" => "1"
+            ]
+        ]);
     }
 }
