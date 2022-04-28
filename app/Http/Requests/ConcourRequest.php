@@ -28,8 +28,8 @@ class ConcourRequest extends FormRequest
             'description' => 'required', 
             'date_debut' => 'required', 
             'date_fin' => 'required | after:date_debut',
-            'documents.*' => 'mimes:pdf',
-            'images.*' => 'image'
+            'documents.*' => 'required | mimes:pdf',
+            'images.*' => 'required | image'
         ];
     }
 }
