@@ -89,15 +89,13 @@
                             <nav class="rs-menu rs-menu-close" style="height: 0px;">
                                 <ul class="nav-menu">
                                     <li class="menu-item-has-children">
-                                        <a href="{{ url('/') }}" class="active">Accueil</a>
+                                        <a href="{{ url('/') }}" class="@if(Request::is('') || Request::is('home') ) active @endif">Accueil</a>
                                     </li>
                                     
                                     <li class="menu-item-has-children">
                                         <a href="#concours" class="@if(Request::is('concours')) active @endif">Concours</a>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#enseignant" class="@if(Request::is('propos')) active @endif">A propos</a>
-                                    </li>
+                                   
                                     <li class="menu-item-has-children">
                                         <a href="{{ url('contact') }}" class="@if(Request::is('contact')) active @endif">Contact</a>
                                     </li>

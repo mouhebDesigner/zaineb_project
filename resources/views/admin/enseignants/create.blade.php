@@ -65,7 +65,7 @@
                                             style="color: red">* </span></label>
                                     <input type="text" class="form-control" name="specialite"
                                         value="{{ old('specialite') }}" id="specialite"
-                                        placeholder="Saisir date de naissance ">
+                                        placeholder="Saisir spécialité">
                                     @error('specialite')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror

@@ -62,10 +62,13 @@
                                                             Titre
                                                         </th>
                                                         <th>
-                                                            Date début
+                                                            Premiér prix
                                                         </th>
                                                         <th>
-                                                            Date fin
+                                                            Deuxième prix
+                                                        </th>
+                                                        <th>
+                                                            Troisième prix
                                                         </th>
                                                         <th>
                                                             Action
@@ -78,8 +81,9 @@
                                                         <tr>
                                                             <td>{{ $concour->id }}</td>
                                                             <td>{{ $concour->titre }}</td>
-                                                            <td>{{ $concour->date_debut }}</td>
-                                                            <td>{{ $concour->date_fin }}</td>
+                                                            <td>{{ $concour->prix_first }}</td>
+                                                            <td>{{ $concour->prix_second }}</td>
+                                                            <td>{{ $concour->prix_third }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     

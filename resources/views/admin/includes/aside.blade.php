@@ -38,7 +38,11 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        @include('admin.includes.admin_menu')
+        @if(Auth::user()->isJury())
+          @include('admin.includes.enseignant_menu')
+        @else 
+          @include('admin.includes.admin_menu')
+        @endif
       </nav>
       <!-- /.sidebar-menu -->
     </div>

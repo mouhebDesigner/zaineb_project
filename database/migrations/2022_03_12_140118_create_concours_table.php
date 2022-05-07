@@ -17,9 +17,9 @@ class CreateConcoursTable extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description');
-            $table->date('date_debut')->nullable();
-            $table->date('date_fin')->nullable();
-            $table->string('prix');
+            $table->string('prix_first');
+            $table->string('prix_second');
+            $table->string('prix_third');
             $table->timestamps();
         });
     }

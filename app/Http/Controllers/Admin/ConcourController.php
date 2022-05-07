@@ -7,6 +7,7 @@ use App\Models\Concour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConcourRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ConcourController extends Controller
 {

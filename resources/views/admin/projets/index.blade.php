@@ -15,7 +15,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Liste des prix</h1>
+                            <h1 class="m-0">Liste des projets</h1>
                         </div><!-- /.col -->
                        
                     </div>
@@ -35,10 +35,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="d-flex justify-content-between">
-                                            <h3 class="m-0">Liste des prix</h3>
-                                            <a href="{{ url('admin/prices/create') }}" class="add_button" title="ajouter un prix">
-                                                <i class="fa fa-plus"></i>
-                                            </a>
+                                            <h3 class="m-0">Liste des projets</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -65,14 +62,9 @@
                                                         <th>
                                                             Titre
                                                         </th>
-                                                        
                                                         <th>
-                                                            Date de création
-                                                        </th>
-                                                        
-                                                        <th>
-                                                            Date de modification
-                                                        </th>
+                                                            Concour
+                                                        </th>                                                       
                                                         <th>
                                                             Action
                                                         </th>
@@ -81,22 +73,30 @@
 
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($prices as $price)
+                                                    @foreach($projets as $projet)
                                                         <tr>
-                                                            <td>{{ $price->id }}</td>
-                                                            <td>{{ $price->titre }}</td>
-                                                            <td>{{ $price->created_at }}</td>
-                                                            <td>{{ $price->updated_at }}</td>
+                                                            <td>{{ $projet->id }}</td>
+                                                            <td>{{ $projet->titre }}</td>
+                                                            <td>{{ $projet->concour->titre }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
-                                                                    
-                                                                    <button type="submit" class="btn-delete delete-confirm" data-model="prix" data-url="{{ route('admin.prices.destroy', ['price' => $price]) }}" >
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </button>
-                                                                    <a href="{{ url('admin/prices/'.$price->id.'/edit') }}" data-model="prix" class="edit-confirm btn-edit">
-                                                                        <i class="fa fa-pen"></i>
+                                                                    <a href="{{ url('admin/projets/'.$projet->id) }}" title="Voir détails projet" class="btn-edit">
+                                                                        <i class="fa fa-info"></i>
                                                                     </a>
-                                                                 
+                                                                    @if($projet->gagnant != null)
+                                                                        @if($projet->gagnant == "first")
+                                                                            Premier prix
+                                                                        @elseif($projet->gagnant == "second")
+                                                                            Deuxième prix
+                                                                        @else
+                                                                            Troisième prix
+                                                                        @endif
+                                                                    @else 
+
+                                                                        <a href="{{ url('admin/projets/'.$projet->id."/gagnant") }}" style="width: 100px" title="Voir détails projet" class="btn-edit">
+                                                                            Gagnant
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
                                                             </td>
                                                         </tr>

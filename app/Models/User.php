@@ -53,6 +53,9 @@ class User extends Authenticatable
     public function isStudent(){
         return Auth::user()->role == "etudiant";
     }
+    public function isJury(){
+        return Auth::user()->role == "jury";
+    }
 
     public function concours(){
         return $this->hasMany(Concour::class, 'projets', 'user_id', 'concour_id');

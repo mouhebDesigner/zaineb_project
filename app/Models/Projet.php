@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Projet extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
         "concour_id",
@@ -20,5 +20,11 @@ class Projet extends Model
         return $this->hasMany(Ressource::class);
     }
 
-   
+    public function concour(){
+        return $this->belongsTo(Concour::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

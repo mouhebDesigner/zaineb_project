@@ -5,17 +5,17 @@
         <a href="{{ url('home') }}" class="nav-link ">
             <i class="nav-icon fas fa-home"></i>
             <p>
-                Projets
+                Tableau de board
                 <i class="right fas fa-angle-left"></i>
             </p>
         </a>
     </li>
   
-    <li class="nav-item @if(Request::is('admin/users*')) active @endif">
-        <a href="{{ url('admin/users') }}" class="nav-link ">
+    <li class="nav-item @if(Request::is('admin/projets*')) active @endif">
+        <a href="{{ url('admin/projets') }}" class="nav-link ">
             <i class="nav-icon fas fa-user"></i>
             <p>
-            Liste d'inscription
+            Projets
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
@@ -33,7 +33,7 @@
         <a href="{{ url('admin/concours') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>
             <p>
-            Gérer les concours
+            Concours
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>
@@ -42,7 +42,7 @@
         <a href="{{ url('admin/contacts') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>
             <p>
-            Gérer les contacts
+            Contacts
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>

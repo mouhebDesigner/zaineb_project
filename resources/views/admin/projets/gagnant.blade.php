@@ -22,27 +22,26 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ url('admin/concours') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/gagnant') }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
+                            <input type="hidden" value="{{ $id }}" name="projet_id">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="titre">Titre</label>
-                                    <input type="text" class="form-control" name="titre" value="{{ old('titre') }}" id="titre" placeholder="Saisir titre de concours">
-                                    @error('titre')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">description</label>
-                                    <textarea class="form-control" name="description" value="{{ old('description') }}" id="description" placeholder="Saisir libellé de concours">{{ old('description') }}</textarea>
-                                    @error('description')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="date_fin">Date fin</label>
-                                    <input type="date" class="form-control" name="date_fin" value="{{ old('date_fin') }}" id="date_fin" placeholder="Saisir date_fin de concours">
-                                    @error('date_fin')
+                                    <label for="prix">Prix</label>
+                                    <select name="gagnant" class="form-control" id="">
+                                        <option value="" selected disabled>Sélectionner un prix</option>
+                                        @if(App\Models\Projet::where('gagnant', 'first')->count() ==0)
+                                        <option value="first">{{ App\Models\Projet::find($id)->concour->prix_first }}</option>
+                                        @endif
+                                        @if(App\Models\Projet::where('gagnant', 'second')->count() ==0)
+                                        <option value="second">{{ App\Models\Projet::find($id)->concour->prix_second }}</option>
+                                        @endif
+                                        @if(App\Models\Projet::where('gagnant', 'third')->count() ==0)
+                                        <option value="third">{{ App\Models\Projet::find($id)->concour->prix_third }}</option>
+                                        @endif
+                                    </select>
+                                    @error('prix')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

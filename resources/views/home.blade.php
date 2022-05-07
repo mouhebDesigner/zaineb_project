@@ -32,21 +32,35 @@
             <div class="col-lg-4 col-md-6 md-mb-30">
                 <div class="courses-item">
                     <div class="img-part">
-                        <img src="{{ asset('storage/'.$concour->resources()->firstWhere('type', 'image')->path) }}"
-                            alt="">
+                        <img src="{{ asset($concour->resources()->firstWhere('type', 'image')->path) }}"
+                                    alt="">
                     </div>
                     <div class="content-part">
                         <ul class="meta-part">
-                            <li><span class="price">{{ $concour->prix }}</span></li>
+                            <li>
+                                <div class="d-flex">
+                                    <span class="price">
+                                        {{ $concour->prix_first }}
+                                    </span>
+                                    <span class="price">
+                                        {{ $concour->prix_second }}
+                                    </span>
+                                    <span class="price">
+                                        {{ $concour->prix_third }}
+                                    </span>
+                                </div>
+                            </li>
                             <li><a class="categorie" href="/course-categories"></a></li>
                         </ul>
                         <h3 class="title"><a href="/course/course-single">{{ $concour->titre }}</a></h3>
-                        <p>{{ $concour->date_debut }} --> {{ $concour->date_fin }}</p>
+                        <p>
+                            {{ $concour->description }}
+                        </p>
                         <div class="bottom-part">
                             <div class="info-meta">
                                 <ul>
-                                    <li class="user"><i class="fa fa-user"></i>
-                                        ({{ $concour->participants()->count() }})</li>
+                                    <li class="user"><i class="fa fa-user"></i> 
+                                    ({{ $concour->participants()->count() }})</li>
                                 </ul>
                             </div>
                             <div class="btn-part"><a href="{{ url('concours/'.$concour->id) }}">Participaer maintenant<i

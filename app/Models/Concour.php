@@ -9,7 +9,7 @@ class Concour extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titre', 'description','date_fin', 'date_debut', 'prix'];
+    protected $fillable = ['titre', 'description', 'prix_first', 'prix_second','prix_third'];
 
 
     public function participants(){

@@ -40,20 +40,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                   <label for="date_debut">Date de début</label>
-                                   <input type="date" class="form-control" name="date_debut" value="{{ $concour->date_debut }}" id="date_debut" placeholder="Saisir date_debut de concours">
-                                   @error('date_debut')
-                                       <p class="text-danger">{{ $message }}</p>
-                                   @enderror
-                               </div>
-                                <div class="form-group">
-                                    <label for="date_fin">Date fin</label>
-                                    <input type="date" class="form-control" name="date_fin" value="{{ $concour->date_fin }}" id="date_fin" placeholder="Saisir date_fin de concours">
-                                    @error('date_fin')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
+                                
 
                                 <div class="form-group">
                                     <label for="documents">Documents (PDF)</label>
@@ -87,10 +74,27 @@
                                 </div>
                                
                                 <div class="form-group">
-                                    <label for="prix">Prix</label>
-                                    <input type="text" class="form-control" name="prix" value="{{ $concour->prix }}" id="prix" placeholder="Saisir prix de concours">
-                                    @error('prix')
-                                        <p class="text-danger">{{ $message }}</p>
+                                    <label for="prix_first">Première prix</label>
+                                    <input type="text" class="form-control" name="prix_first" value="{{ $concour->prix_first }}"
+                                        id="prix_first" placeholder="Saisir prix_first de concours">
+                                    @error('prix_first')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix_second">Deuxième prix</label>
+                                    <input type="text" class="form-control" name="prix_second" value="{{ $concour->prix_second }}"
+                                        id="prix_second" placeholder="Saisir prix_second de concours">
+                                    @error('prix_second')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix_third">Troisième prix</label>
+                                    <input type="text" class="form-control" name="prix_third" value="{{ $concour->prix_third }}"
+                                        id="prix_third" placeholder="Saisir prix_third de concours">
+                                    @error('prix_third')
+                                    <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>

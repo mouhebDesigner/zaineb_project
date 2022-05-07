@@ -6,6 +6,7 @@ use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ParticiperController;
+use App\Http\Controllers\Admin\ProjetController;
 use App\Http\Controllers\ContactAdminController;
 use App\Http\Controllers\Admin\ConcourController;
 use App\Http\Controllers\ConcourController as ConcourEtudiant;
@@ -26,8 +27,11 @@ Route::middleware(['auth'])->group(function () {
         Route::resources([
             'concours' => ConcourController::class,
             'enseignants' => JuryController::class,
-            'users' => UserController::class
+            'users' => UserController::class,
+            'projets' => ProjetController::class
         ]);
+        Route::get('projets/{id}/gagnant', [ProjetController::class, 'edit']);
+        Route::put('gagnant', [ProjetController::class, 'affectGagnant']);
         Route::resource('contacts', ContactAdminController::class)->only(['index', 'show', 'destroy']);
         Route::get('concours/{concour}/projet', [ConcourController::class, 'getProjets'])->name('concours.listerProjet');
     });
@@ -63,3 +67,8 @@ Route::get('download/{id}', function($id){
     $filepath = public_path('storage/').$resource->path;
     return Response::download($filepath);
 })->name('download.file');
+Route::get('download/{id}/document', function($id){
+    $projet = Projet::find($id);
+    $filepath = public_path('storage/').$projet->document;
+    return Response::download($filepath);
+})->name('download.file.document');

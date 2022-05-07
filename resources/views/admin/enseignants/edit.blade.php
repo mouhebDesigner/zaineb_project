@@ -59,9 +59,27 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_naissance">date naissance </label>
-                                    <input type="date" class="form-control" name="date_naissance" value="{{ $enseignant->date_naissance }}" id="date_naissance" placeholder="Saisir date_naissance">
-                                    @error('date_naissance')
+                                    <label for="specialite">Spécialité <span
+                                            style="color: red">* </span></label>
+                                    <input type="text" class="form-control" name="specialite"
+                                        value="{{ $enseignant->specialite }}" id="specialite"
+                                        placeholder="Saisir spécialité">
+                                    @error('specialite')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="images">Avatar</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="avatar" class="custom-file-input" onchange="javascript:updateImage()" id="images">
+                                            <label class="custom-file-label" id="imageName" for="images">Choisir images</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Télécharger</span>
+                                        </div>
+                                    </div>
+                                    @error('avatar')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

@@ -26,8 +26,6 @@ class ConcourRequest extends FormRequest
         return [
             'titre' => 'required', 
             'description' => 'required', 
-            'date_debut' => 'required', 
-            'date_fin' => 'required | after:date_debut',
             'documents.*' => 'required | mimes:pdf',
             'images.*' => 'required | image'
         ];

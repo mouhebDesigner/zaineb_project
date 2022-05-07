@@ -11,7 +11,7 @@
               Les Concours
           </span>
           <span class="info-box-number text-dark">
-              12
+              {{ App\Models\Concour::count() }}
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -29,7 +29,7 @@
               Les Etudiants
           </span>
           <span class="info-box-number text-dark">
-              12
+              {{ App\Models\User::where('role', 'etudiant')->count() }}
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -47,7 +47,7 @@
               Jury
           </span>
           <span class="info-box-number text-dark">
-              12
+              {{ App\Models\User::where('role', 'jury')->count() }}
           </span>
         </div>
         <!-- /.info-box-content -->

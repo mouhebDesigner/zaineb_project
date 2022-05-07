@@ -120,10 +120,14 @@ class JuryController extends Controller
         $enseignant->nom = $request->nom;
         $enseignant->prenom = $request->prenom;
         $enseignant->email = $request->email;
-        $enseignant->password = Hash::make($request->password);
+        if(isset($request->password)){
+            $enseignant->password = Hash::make($request->password);
+        }
         $enseignant->numtel = $request->numtel;
         $enseignant->specialite = $request->specialite;
-      
+        if($request->hasFile('avatar')){
+            $enseignant->avatar = $request->avatar->store('resources');
+        }
 
         $enseignant->save();
 
