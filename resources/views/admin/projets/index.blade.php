@@ -92,10 +92,11 @@
                                                                             Troisième prix
                                                                         @endif
                                                                     @else 
-
+                                                                        @if(Auth::user()->isAdmin())
                                                                         <a href="{{ url('admin/projets/'.$projet->id."/gagnant") }}" style="width: 100px" title="Voir détails projet" class="btn-edit">
                                                                             Gagnant
                                                                         </a>
+                                                                        @endif
                                                                     @endif
                                                                 </div>
                                                             </td>
