@@ -23,13 +23,12 @@
     <div class="container">
         <div class="sec-title3 text-center mb-44 aos-init aos-animate" data-aos="" data-aos-delay=""
             data-aos-duration="">
-            <div class="sub-title">Choisir concours</div>
-            <h2 class="title black-color">List de concours populaires</h2>
+            <h2 class="title black-color">Concour des meilleur projets entreprise innovante</h2>
         </div>
         <div class="row">
             @foreach(App\Models\Concour::all()->take(6) as $concour)
 
-            <div class="col-lg-4 col-md-6 md-mb-30">
+            <div class="col-lg-6 offset-lg-3 col-md-6 md-mb-30">
                 <div class="courses-item">
                     <div class="img-part">
                         <img src="{{ asset($concour->resources()->firstWhere('type', 'image')->path) }}"
@@ -40,13 +39,13 @@
                             <li>
                                 <div class="d-flex">
                                     <span class="price">
-                                        {{ $concour->prix_first }}
+                                        30000DT
                                     </span>
                                     <span class="price">
-                                        {{ $concour->prix_second }}
+                                        20000DT
                                     </span>
                                     <span class="price">
-                                        {{ $concour->prix_third }}
+                                        15000DT
                                     </span>
                                 </div>
                             </li>
@@ -71,7 +70,6 @@
             </div>
             @endforeach
         </div>
-        <div class="text-center"><a class="readon orange-btn main-home" href="/course-categories">Voir tous </a></div>
     </div>
 </div>
 @endsection

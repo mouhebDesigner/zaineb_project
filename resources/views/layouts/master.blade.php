@@ -8,6 +8,8 @@
         <!-- responsive tag -->
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <!-- favicon -->
         <link rel="apple-touch-icon" href="apple-touch-icon.html">
         <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/front/assets//images/easy-learn.png">
@@ -95,8 +97,70 @@
         <script src="{{ asset('front/assets/js/contact.form.js') }}"></script>
         <!-- main js -->
         <script src="{{ asset('front/assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/sweetalert.min.js') }}"></script>
+
         
         @yield('js')
+
+        <script>
+             $(document).ready(function(){
+                 
+            $(".delete-confirm").on('click', function(e){
+            e.preventDefault();
+            var url = $(this).data('url');
+            console.log($('meta[name=csrf-token]').attr('content'));
+            swal({
+                    title: "êtes vous sûr?",
+                    text: "Voulez vous supprimer ce "+$(this).data('model'),
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var data = {
+                            "_token" : $('meta[name="csrf-token"]').attr('content'),
+                        };
+                        $.ajax({
+                            type: "DELETE",
+                            url: url,
+                            data: data,
+                            success: function(response){
+                                console.log(response);
+                                swal(response.deleted, {
+                                    icon: "success",
+                                }).then((result) => {
+                                    location.reload();
+                                });
+                            }
+                        })
+                    } else {
+                        swal("Votre action est annulé");
+                    }
+                });
+            });
+            $(".edit-confirm").on('click', function(e){
+                e.preventDefault();
+                console.log($(this).data('model'));
+                var id = $(this).closest('tr').find('.product_id').val();
+                var href = $(this).attr('href');
+                swal({
+                    title: "êtes vous sûr?",
+                    text: "Voulez vous editer ce "+$(this).data('model'),
+                    icon: "primary",
+                    buttons: true,
+                    dangerMode: false,
+                })
+                .then((willEdit) => {
+                    if (willEdit) {
+                        window.location.href = href;
+                    } else {
+                        swal("Votre action est annulé");
+                    }
+                });
+            });
+        });
+        </script>
 
         
     </body>

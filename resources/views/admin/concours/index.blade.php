@@ -46,7 +46,9 @@
                                         <div class="col-md-12">
                                             <div class="d-flex justify-content-between">
                                              
-                                              
+                                              <a href="{{ route('admin.concours.create') }}">
+                                                Ajouter concour
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -72,31 +72,6 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                               
-                                <div class="form-group">
-                                    <label for="prix_first">Première prix</label>
-                                    <input type="text" class="form-control" name="prix_first" value="{{ $concour->prix_first }}"
-                                        id="prix_first" placeholder="Saisir prix_first de concours">
-                                    @error('prix_first')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="prix_second">Deuxième prix</label>
-                                    <input type="text" class="form-control" name="prix_second" value="{{ $concour->prix_second }}"
-                                        id="prix_second" placeholder="Saisir prix_second de concours">
-                                    @error('prix_second')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="prix_third">Troisième prix</label>
-                                    <input type="text" class="form-control" name="prix_third" value="{{ $concour->prix_third }}"
-                                        id="prix_third" placeholder="Saisir prix_third de concours">
-                                    @error('prix_third')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
                             </div>
                             <!-- /.card-body -->
 

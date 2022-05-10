@@ -22,7 +22,7 @@
         <div class="row clearfix">
             <!-- Content Column -->
             
-            <div class="col-lg-4 col-md-12 video-column"
+            <div class="col-lg-4 offset-lg-4  col-md-12 video-column"
                 style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <div class="theiaStickySidebar"
                     style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 1178.16px;">

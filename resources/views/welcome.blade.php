@@ -29,7 +29,7 @@
         <div class="row">
             @foreach(App\Models\Concour::all()->take(6) as $concour)
             
-            <div class="col-lg-4 col-md-6 md-mb-30">
+            <div class="col-lg-6 offset-lg-3 col-md-6 md-mb-30">
                 <div class="courses-item">
                     <div class="img-part">
                         <img src="{{ asset($concour->resources()->firstWhere('type', 'image')->path) }}"
@@ -40,13 +40,13 @@
                             <li>
                                 <div class="d-flex">
                                     <span class="price">
-                                        {{ $concour->prix_first }}
+                                        30000DT
                                     </span>
                                     <span class="price">
-                                        {{ $concour->prix_second }}
+                                        20000DT
                                     </span>
                                     <span class="price">
-                                        {{ $concour->prix_third }}
+                                        15000DT
                                     </span>
                                 </div>
                             </li>

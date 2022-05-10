@@ -51,9 +51,11 @@
                                                 <div class="post">
                                                     <div class="user-block">
                                                         @if($projet->user->avatar != null)
-                                                            <img  class="img-circle img-bordered-sm" src="{{ asset('storage/'.$projet->user->avatar) }}" alt="">
+                                                        <img class="img-circle img-bordered-sm"
+                                                            src="{{ asset('storage/'.$projet->user->avatar) }}" alt="">
                                                         @else
-                                                            <img  class="img-circle img-bordered-sm" src="{{ asset('front/assets/images/avatar.png') }}" alt="">
+                                                        <img class="img-circle img-bordered-sm"
+                                                            src="{{ asset('front/assets/images/avatar.png') }}" alt="">
                                                         @endif
                                                         <span class="username">
                                                             <a href="#">
@@ -61,7 +63,8 @@
                                                                 {{ $projet->user->prenom }}
                                                             </a>
                                                         </span>
-                                                        <span class="description">Partagé publiquement - {{ $projet->created_at }}</span>
+                                                        <span class="description">Partagé publiquement -
+                                                            {{ $projet->created_at }}</span>
                                                     </div>
 
                                                     <p>
@@ -69,44 +72,64 @@
                                                     </p>
                                                     <p>
                                                         @if($projet->document)
-                                                        <a href="{{ url('download/'.$id."/document") }}" class="link-black text-sm"><i
-                                                                class="fas fa-link mr-1"></i>
+                                                        <a href="{{ url('download/'.$id."/document") }}"
+                                                            class="link-black text-sm"><i class="fas fa-link mr-1"></i>
                                                             Fichier demo
                                                         </a>
                                                         @endif
                                                     </p>
                                                 </div>
+                                                <div class="col-12">
+                                                    <form action="{{ url('commentaires') }}" method="post"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                                        <input type="hidden" name="projet_id" value="{{ $projet->id }}">
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="description">description</label>
+                                                                <textarea class="form-control" name="description"
+                                                                    value="{{ old('description') }}" id="description"
+                                                                    placeholder="Saisir libellé de concours">{{ old('description') }}</textarea>
+                                                                @error('description')
+                                                                <p class="text-danger">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+                                                    </form>
 
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.card-body -->
+                                <!-- /.card -->
                             </div>
-                            <!-- /.card -->
+                            <!-- /.col -->
                         </div>
-                        <!-- /.col -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    @endsection
+        @endsection
 
-    @section('script')
-    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+        @section('script')
+        <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
-    @endsection
+        @endsection

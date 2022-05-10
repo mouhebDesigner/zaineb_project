@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Auth;
 use App\Models\Concour;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConcourRequest;
@@ -114,8 +115,8 @@ class ConcourController extends Controller
 
         if($request->hasFile('images')){
             $concour->deleteImages();
+            
             foreach($request->images as $key => $image){
-                
                 $resource = new Resource();
                 $resource->path = $image->store('resources');
                 $resource->type = "image";

@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Projet;
 use App\Models\Resource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ParticiperController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\Admin\ProjetController;
 use App\Http\Controllers\ContactAdminController;
 use App\Http\Controllers\Admin\ConcourController;
@@ -36,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('concours/{concour}/projet', [ConcourController::class, 'getProjets'])->name('concours.listerProjet');
     });
 });
+Route::get('profile', function(){
+    return view('profile');
+})->middleware('auth');
 Route::get('concours/{id}', [ConcourEtudiant::class, 'show']);
 Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer'])->middleware('auth');
 Route::post('participer', [ConcourEtudiant::class, 'store']);
@@ -64,11 +69,24 @@ Route::resource('contact', ContactController::class);
 
 Route::get('download/{id}', function($id){
     $resource = Resource::find($id);
-    $filepath = public_path('storage/').$resource->path;
+    $filepath = public_path().$resource->path;
     return Response::download($filepath);
 })->name('download.file');
-Route::get('download/{id}/document', function($id){
+Route::get('download/{id}/prototype', function($id){
     $projet = Projet::find($id);
-    $filepath = public_path('storage/').$projet->document;
+    $filepath = public_path()."/".$projet->prototype;
     return Response::download($filepath);
-})->name('download.file.document');
+})->name('download.file.prototype');
+Route::get('download/{id}/bmc', function($id){
+    $projet = Projet::find($id);
+    $filepath = public_path()."/".$projet->bmc;
+    return Response::download($filepath);
+})->name('download.file.bmc');
+Route::get('download/{id}/planAffaire', function($id){
+    $projet = Projet::find($id);
+    $filepath = public_path()."/".$projet->planAffaire;
+    return Response::download($filepath);
+})->name('download.file.planAffaire');
+Route::delete('projet/{projet}', [ProjetController::class, 'destroy'])->name('projets.destroy');
+Route::post('commentaires', [CommentaireController::class, 'store'])->middleware('auth');
+Route::get('projet/{id}/edit', [ConcourEtudiant::class, 'edit'])->name('projets.edit');

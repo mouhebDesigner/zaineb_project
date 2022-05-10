@@ -23,13 +23,28 @@ class ConcourController extends Controller
         return view('concours.show', compact('concour'));
     }
 
+    public function edit($id){
+        $projet = Projet::find($id);
+        return view('concours.edit', compact('projet'));
+    }
+
     public function participer($id){
         return view('concours.participer', compact('id'));
     }
 
     public function store(ProjetRequest $request){
-        Projet::create($request->all());
+        $projet = Projet::create($request->all());
+        if($request->hasFile('prototype')){
+            $projet->prototype =  $request->prototype->store('resources');
+        }
+        if($request->hasFile('bmc')){
+            $projet->bmc =  $request->bmc->store('resources');
+        }
+        if($request->hasFile('planAffaire')){
+            $projet->planAffaire =  $request->planAffaire->store('resources');
+        }
 
+        $projet->save();
         return redirect('concours/'.$request->concour_id)->with('participer', 'Vous avez participé au concour avec succée');
     }
 }

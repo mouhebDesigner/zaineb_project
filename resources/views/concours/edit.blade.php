@@ -13,16 +13,15 @@
                         <h2 class="login">Participer à un concour</h2>
                         <form method="POST" action="{{ url('participer') }}" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <input type="hidden" name="concour_id" value="{{ $id }}">
+                            @method('put')
                             <div class="form_inputs">
-                                <input type="text" name="titre" placeholder="Saisir un titre">
+                                <input type="text" value="{{ $projet->titre }}" name="titre" placeholder="Saisir un titre">
                                 @error('titre')
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <textarea name="description" id="" cols="30" rows="10" placeholder="Saisir description"></textarea>
+                                <textarea name="description" id="" cols="30" rows="10" placeholder="Saisir description">{{ $projet->description }}</textarea>
                                 @error('description')
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror

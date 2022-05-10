@@ -20,7 +20,9 @@ class CreateProjetsTable extends Migration
             $table->string('titre');
             $table->text('description');
             $table->enum('gagnant', ['first', 'second', 'third'])->default(null);
-            $table->string('document')->nullable();
+            $table->string('prototype')->nullable();
+            $table->string('bmc')->nullable();
+            $table->string('planAffaire')->nullable();
             $table->timestamps();
         });
     }

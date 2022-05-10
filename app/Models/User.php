@@ -60,4 +60,12 @@ class User extends Authenticatable
     public function concours(){
         return $this->hasMany(Concour::class, 'projets', 'user_id', 'concour_id');
     }
+
+    public function projet(){
+        return $this->hasOne(Projet::class);
+    }
+
+    public function hasProjet(){
+        return $this->projet != null;
+    }
 }
