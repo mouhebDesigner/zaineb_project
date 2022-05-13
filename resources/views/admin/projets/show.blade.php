@@ -71,10 +71,15 @@
                                                         {{ $projet->description }}
                                                     </p>
                                                     <p>
-                                                        @if($projet->document)
-                                                        <a href="{{ url('download/'.$id."/document") }}"
-                                                            class="link-black text-sm"><i class="fas fa-link mr-1"></i>
-                                                            Fichier demo
+                                                        @if($projet->prototype)
+                                                        <a href="{{ url('download/'.$projet->id.'/prototype') }}">
+                                                            Fichier prototype
+                                                        </a><br>
+                                                        <a href="{{ url('download/'.$projet->id.'/bmc') }}">
+                                                            Fichier BMC
+                                                        </a><br>
+                                                        <a href="{{ url('download/'.$projet->id.'/planAffaire') }}">
+                                                            Fichier plan d'affaire
                                                         </a>
                                                         @endif
                                                     </p>
