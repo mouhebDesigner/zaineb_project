@@ -9,7 +9,9 @@ class Commentaire extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "description",
+        "description_prototype",
+        "description_bmc",
+        "description_planAffaire",
         "projet_id",
         "user_id"
     ];

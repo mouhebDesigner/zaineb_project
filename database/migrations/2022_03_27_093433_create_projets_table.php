@@ -19,7 +19,7 @@ class CreateProjetsTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onDelete('cascade');
             $table->string('titre');
             $table->text('description');
-            $table->enum('gagnant', ['first', 'second', 'third'])->default(null);
+            $table->enum('gagnant', ['first', 'second', 'third'])->default(null)->nullable();
             $table->string('prototype')->nullable();
             $table->string('bmc')->nullable();
             $table->string('planAffaire')->nullable();

@@ -87,12 +87,30 @@
                                                         <input type="hidden" name="projet_id" value="{{ $projet->id }}">
                                                         <div class="card-body">
                                                             <div class="form-group">
-                                                                <label for="description">description</label>
-                                                                <textarea class="form-control" name="description"
-                                                                    value="{{ old('description') }}" id="description"
-                                                                    placeholder="Saisir libellé de concours">{{ old('description') }}</textarea>
-                                                                @error('description')
-                                                                <p class="text-danger">{{ $message }}</p>
+                                                                <label for="description_prototype">Commentaire (PROTOTYPE)</label>
+                                                                <textarea class="form-control" name="description_prototype"
+                                                                    value="{{ old('description_prototype') }}" id="description_prototype"
+                                                                    placeholder="Saisir commentaire">{{ old('description_prototype') }}</textarea>
+                                                                @error('description_prototype')
+                                                                    <p class="text-danger">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="description_bmc">Commentaire (BMC)</label>
+                                                                <textarea class="form-control" name="description_bmc"
+                                                                    value="{{ old('description_bmc') }}" id="description_bmc"
+                                                                    placeholder="Saisir commentaire">{{ old('description_bmc') }}</textarea>
+                                                                @error('description_bmc')
+                                                                    <p class="text-danger">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="description_planAffaire">Commentaire (PLAN AFFAIRE)</label>
+                                                                <textarea class="form-control" name="description_planAffaire"
+                                                                    value="{{ old('description_planAffaire') }}" id="description_planAffaire"
+                                                                    placeholder="Saisir commentaire">{{ old('description_planAffaire') }}</textarea>
+                                                                @error('description_planAffaire')
+                                                                    <p class="text-danger">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>

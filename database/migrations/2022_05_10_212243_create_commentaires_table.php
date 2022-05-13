@@ -15,7 +15,9 @@ class CreateCommentairesTable extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->string('description_prototype');
+            $table->string('description_bmc');
+            $table->string('description_planAffaire');
             $table->foreignId('projet_id')->nullable()->constrained('projets')->onDelete('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onDelete('cascade');
             $table->timestamps();
