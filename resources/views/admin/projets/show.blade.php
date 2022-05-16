@@ -46,8 +46,8 @@
                                     <div class="col-12 col-md-12 col-lg-12">
 
                                         <div class="row">
-                                            <div class="col-12">
-                                                <h4>{{ $projet->titre }}</h4>
+                                            <div class="col-8">
+                                                <h4>Titre projet<br> {{ $projet->titre }}</h4>
                                                 <div class="post">
                                                     <div class="user-block">
                                                         @if($projet->user->avatar != null)
@@ -66,7 +66,8 @@
                                                         <span class="description">Partagé publiquement -
                                                             {{ $projet->created_at }}</span>
                                                     </div>
-
+                                                   
+                                                    <h4>Description projet</h4>
                                                     <p>
                                                         {{ $projet->description }}
                                                     </p>
@@ -92,25 +93,38 @@
                                                         <input type="hidden" name="projet_id" value="{{ $projet->id }}">
                                                         <div class="card-body">
                                                             <div class="form-group">
-                                                                <label for="description_prototype">Commentaire (PROTOTYPE)</label>
+                                                                <label for="description_prototype">Commentaire 
+                                                                    <a href="{{ asset($projet->prototype) }}" target="_blank">
+                                                                        (PROTOTYPE)
+                                                                    </a>
+                                                                </label>
                                                                 <textarea class="form-control" name="description_prototype"
-                                                                    value="{{ old('description_prototype') }}" id="description_prototype"
-                                                                    placeholder="Saisir commentaire">{{ old('description_prototype') }}</textarea>
+                                                                value="{{ old('description_prototype') }}" id="description_prototype"
+                                                                placeholder="Saisir commentaire">{{ old('description_prototype') }}</textarea>
                                                                 @error('description_prototype')
-                                                                    <p class="text-danger">{{ $message }}</p>
+                                                                <p class="text-danger">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="description_bmc">Commentaire (BMC)</label>
+                                                                <label for="description_bmc">
+                                                                    Commentaire 
+                                                                    <a href="{{ asset($projet->bmc) }}" target="_blank">
+                                                                        (BMC)
+                                                                    </a>
+                                                                </label>
                                                                 <textarea class="form-control" name="description_bmc"
-                                                                    value="{{ old('description_bmc') }}" id="description_bmc"
-                                                                    placeholder="Saisir commentaire">{{ old('description_bmc') }}</textarea>
+                                                                value="{{ old('description_bmc') }}" id="description_bmc"
+                                                                placeholder="Saisir commentaire">{{ old('description_bmc') }}</textarea>
                                                                 @error('description_bmc')
-                                                                    <p class="text-danger">{{ $message }}</p>
+                                                                <p class="text-danger">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="description_planAffaire">Commentaire (PLAN AFFAIRE)</label>
+                                                                <label for="description_planAffaire">Commentaire 
+                                                                    <a href="{{ asset($projet->planAffaire) }}" target="_blank">
+                                                                        (PLAN AFFAIRE)
+                                                                    </a>
+                                                                </label>
                                                                 <textarea class="form-control" name="description_planAffaire"
                                                                     value="{{ old('description_planAffaire') }}" id="description_planAffaire"
                                                                     placeholder="Saisir commentaire">{{ old('description_planAffaire') }}</textarea>
@@ -124,6 +138,29 @@
                                                     </form>
 
 
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="post">
+
+                                                <h4>Membre de groupe</h4>
+                                                @foreach(App\Models\Member::where('projet_id', $projet->id)->get() as $member)
+                                                    <div class="user-block">
+                                                        @if(App\Models\User::where('id',$member->id)->first()->avatar != null)
+                                                        <img class="img-circle img-bordered-sm"
+                                                            src="{{ asset('storage/'.App\Models\User::where('id',$member->id)->first()->avatar) }}" alt="">
+                                                        @else
+                                                        <img class="img-circle img-bordered-sm"
+                                                            src="{{ asset('front/assets/images/avatar.png') }}" alt="">
+                                                        @endif
+                                                        <span class="username">
+                                                            <a href="#">
+                                                                {{ App\Models\User::where('id',$member->id)->first()->nom }}
+                                                                {{ App\Models\User::where('id',$member->id)->first()->prenom }}
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                @endforeach
                                                 </div>
                                             </div>
                                         </div>

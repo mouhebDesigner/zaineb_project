@@ -21,15 +21,7 @@
         </a>
     </li>
 
-    <li class="nav-item @if(Request::is('admin/concours*')) active @endif">
-        <a href="{{ url('admin/concours') }}" class="nav-link ">
-            <i class="nav-icon fas fa-chalkboard-teacher"></i>
-            <p>
-            Concours
-            <i class="right fas fa-angle-left"></i>
-            </p>
-        </a>
-    </li>
+  
 
     
 </ul>

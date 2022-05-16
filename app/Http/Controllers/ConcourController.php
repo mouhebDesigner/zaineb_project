@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\Projet;
 use App\Models\Concour;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class ConcourController extends Controller
     }
 
     public function store(ProjetRequest $request){
+
         $projet = Projet::create($request->all());
         if($request->hasFile('prototype')){
             $projet->prototype =  $request->prototype->store('resources');
@@ -45,6 +47,17 @@ class ConcourController extends Controller
         }
 
         $projet->save();
+
+
+        foreach($request->members as $user){
+            $member = new Member();
+    
+            $member->projet_id = $projet->id;
+            $member->user_id = $user;
+    
+            $member->save();
+        }
+
         return redirect('concours/'.$request->concour_id)->with('participer', 'Vous avez participé au concour avec succée');
     }
 }

@@ -24,6 +24,7 @@
                         <form method="POST" action="{{ url('contact') }}">
                             @csrf
                             <div class="row">
+                                @guest
                                 <div class="col-md-12">
                                      <div class="form_inputs">
                                         <input type="text" name="nom" placeholder="Nom" >
@@ -50,6 +51,7 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @endif
                                 <div class="col-12">
                                     <div class="form_inputs">
                                         <input type="text" name="sujet" placeholder="Sujet" >

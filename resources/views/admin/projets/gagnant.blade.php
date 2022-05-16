@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1>
-                    Ajouter un concours 
+                    Sélectionner les gagnants 
                 </h1>
             </section>
             <section class="content">
@@ -25,25 +25,33 @@
                         <form action="{{ url('admin/gagnant') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
-                            <input type="hidden" value="{{ $id }}" name="projet_id">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="prix">Prix</label>
+                                    <label for="prix">Première</label>
                                     <select name="gagnant" class="form-control" id="">
-                                        <option value="" selected disabled>Sélectionner un prix</option>
-                                        @if(App\Models\Projet::where('gagnant', 'first')->count() ==0)
-                                        <option value="first">{{ App\Models\Projet::find($id)->concour->prix_first }}</option>
-                                        @endif
-                                        @if(App\Models\Projet::where('gagnant', 'second')->count() ==0)
-                                        <option value="second">{{ App\Models\Projet::find($id)->concour->prix_second }}</option>
-                                        @endif
-                                        @if(App\Models\Projet::where('gagnant', 'third')->count() ==0)
-                                        <option value="third">{{ App\Models\Projet::find($id)->concour->prix_third }}</option>
-                                        @endif
+                                        <option value="" selected disabled>Sélectionner un projet</option>
+                                        @foreach(App\Models\Projet::all() as $projet)
+                                            <option value="{{ $projet->id }}">{{ $projet->titre }}</option>
+                                        @endforeach
                                     </select>
-                                    @error('prix')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix">Deuxième</label>
+                                    <select name="gagnant" class="form-control" id="">
+                                        <option value="" selected disabled>Sélectionner un projet</option>
+                                        @foreach(App\Models\Projet::all() as $projet)
+                                            <option value="{{ $projet->id }}">{{ $projet->titre }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix">Troisième</label>
+                                    <select name="gagnant" class="form-control" id="">
+                                        <option value="" selected disabled>Sélectionner un projet</option>
+                                        @foreach(App\Models\Projet::all() as $projet)
+                                            <option value="{{ $projet->id }}">{{ $projet->titre }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <!-- /.card-body -->

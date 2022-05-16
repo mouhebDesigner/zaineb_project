@@ -27,6 +27,9 @@
                         <li class="">
                             <a href="{{ url('contact') }}" class="@if(Request::is('contact')) active @endif">Contact</a>
                         </li>
+                        <li class="">
+                            <a href="{{ asset('front/reglement.pdf') }}" target="_blank" class="@if(Request::is('contact')) active @endif">Règlement</a>
+                        </li>
                     </ul>
                 </div>
                 

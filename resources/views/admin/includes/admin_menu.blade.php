@@ -38,6 +38,15 @@
             </p>
         </a>
     </li>
+    <li class="nav-item @if(Request::is('admin/resultat*')) active @endif">
+        <a href="{{ url('admin/resultat') }}" class="nav-link ">
+            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+            <p>
+            Résultat
+            <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+    </li>
     <li class="nav-item @if(Request::is('admin/contacts*')) active @endif">
         <a href="{{ url('admin/contacts') }}" class="nav-link ">
             <i class="nav-icon fas fa-chalkboard-teacher"></i>

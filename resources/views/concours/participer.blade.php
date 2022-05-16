@@ -27,7 +27,6 @@
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror
                             </div>
-                            
                             <div class="form-group">
                                 <label for="" class="text-left" style="width: 100%; text-align: left">
                                     prototype
@@ -51,6 +50,20 @@
                                     Plan d'affaire
                                 </label>
                                 <input type="file" name="planAffaire" placeholder="">
+                                @error('planAffaire')
+                                    <p class="error_input_message">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="members" class="text-left" style="width: 100%; text-align: left">
+                                    Membre groupe
+                                </label>
+                                <select name="members[]" id="members" multiple="multiple">
+                                    <option value="" selected disbaled>Selectionner membre de groupe</option>
+                                    @foreach(App\Models\User::where('role', 'etudiant')->where('id','!=', Auth::id())->get() as $user)
+                                        <option value="{{ $user->id }}">{{ $user->nom }} {{ $user->prenom }}</option>
+                                    @endforeach
+                                </select>
                                 @error('planAffaire')
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror

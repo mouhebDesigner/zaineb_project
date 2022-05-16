@@ -32,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
             'users' => UserController::class,
             'projets' => ProjetController::class
         ]);
+        Route::get('resultat', function(){
+            return view('admin.projets.gagnant');
+        });
         Route::get('projets/{id}/gagnant', [ProjetController::class, 'edit']);
         Route::put('gagnant', [ProjetController::class, 'affectGagnant']);
         Route::resource('contacts', ContactAdminController::class)->only(['index', 'show', 'destroy']);

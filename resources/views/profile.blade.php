@@ -52,12 +52,7 @@
                 <div class="inner-column">
                     <h2> {{ Auth::user()->nom }}
                             {{ Auth::user()->prenom }}</h2>
-                    <h5>Description</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                        tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Nam liber tempor
-                        cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat</p>
-                    <div class="team-skill mb-50">
+                            <div class="team-skill mb-50">
 
                         <h3 class="d-flex justify-content-between skill-title">
                             Mon projet
@@ -87,6 +82,12 @@
                             </a>
                         @endif
                     </div>
+                    <h5>Description</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Nam liber tempor
+                        cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat</p>
+                    
                 </div>
             </div>
             <div class="col-lg-12"></div>
