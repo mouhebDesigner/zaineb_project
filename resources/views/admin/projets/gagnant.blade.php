@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="prix">Première</label>
-                                    <select name="gagnant" class="form-control" id="">
+                                    <select name="first" class="form-control" id="">
                                         <option value="" selected disabled>Sélectionner un projet</option>
                                         @foreach(App\Models\Projet::all() as $projet)
                                             <option value="{{ $projet->id }}">{{ $projet->titre }}</option>
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="prix">Deuxième</label>
-                                    <select name="gagnant" class="form-control" id="">
+                                    <select name="second" class="form-control" id="">
                                         <option value="" selected disabled>Sélectionner un projet</option>
                                         @foreach(App\Models\Projet::all() as $projet)
                                             <option value="{{ $projet->id }}">{{ $projet->titre }}</option>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="prix">Troisième</label>
-                                    <select name="gagnant" class="form-control" id="">
+                                    <select name="third" class="form-control" id="">
                                         <option value="" selected disabled>Sélectionner un projet</option>
                                         @foreach(App\Models\Projet::all() as $projet)
                                             <option value="{{ $projet->id }}">{{ $projet->titre }}</option>

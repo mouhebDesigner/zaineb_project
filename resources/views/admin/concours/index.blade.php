@@ -83,9 +83,9 @@
                                                         <tr>
                                                             <td>{{ $concour->id }}</td>
                                                             <td>{{ $concour->titre }}</td>
-                                                            <td>{{ $concour->prix_first }}</td>
-                                                            <td>{{ $concour->prix_second }}</td>
-                                                            <td>{{ $concour->prix_third }}</td>
+                                                            <td>30000DT</td>
+                                                            <td>20000DT</td>
+                                                            <td>15000DT</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     
@@ -99,7 +99,9 @@
                                                                     <a href="{{ url('admin/concours/'.$concour->id) }}"  title="Voir détail" class="btn-edit">
                                                                         <i class="fa fa-info"></i>
                                                                     </a>
-                                                                 
+                                                                    <a href="{{ url('admin/concours/'.$concour->id."/participants") }}"  title="Voir détail" class="btn-edit">
+                                                                        Participants
+                                                                    </a>                                                                 
                                                                 </div>
                                                             </td>
                                                         </tr>

@@ -83,3 +83,9 @@ td div button:hover, td div a:hover, .card-tools button:hover, .card-tools a:hov
 .card-tools{
     width: 100px;
 }
+
+.content-wrapper {
+    background-image: url("../images/soutenance.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

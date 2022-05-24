@@ -24,10 +24,28 @@ class ProjetController extends Controller
     }
 
     public function affectGagnant(Request $request){
-        $projet = Projet::find($request->projet_id);
-        $projet->gagnant = $request->gagnant;
+        if(isset($request->first)){
+            $projet = Projet::find($request->first);
+            
+            $projet->gagnant = "first";
 
-        $projet->save();
+            $projet->save();
+        }
+        if(isset($request->second)){
+            $projet = Projet::find($request->second);
+
+            $projet->gagnant = "second";
+
+            $projet->save();
+        }
+        if(isset($request->third)){
+
+            $projet = Projet::find($request->third);
+    
+            $projet->gagnant = "third";
+    
+            $projet->save();
+        }
 
         return redirect('admin/projets')->with('updated', 'Le gagnant à été affecté avec succé');
     }

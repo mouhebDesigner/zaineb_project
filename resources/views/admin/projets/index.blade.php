@@ -66,6 +66,9 @@
                                                             Concour
                                                         </th>                                                       
                                                         <th>
+                                                            Prix
+                                                        </th>                                                       
+                                                        <th>
                                                             Action
                                                         </th>
 
@@ -79,25 +82,22 @@
                                                             <td>{{ $projet->titre }}</td>
                                                             <td>{{ $projet->concour->titre }}</td>
                                                             <td>
+                                                                @if($projet->gagnant != null)
+                                                                    @if($projet->gagnant == "first")
+                                                                        Premier prix
+                                                                    @elseif($projet->gagnant == "second")
+                                                                        Deuxième prix
+                                                                    @else
+                                                                        Troisième prix
+                                                                    @endif
+                                                                @endif
+                                                            </td>
+                                                            <td>
                                                                 <div class="d-flex justify-content-around">
                                                                     <a href="{{ url('admin/projets/'.$projet->id) }}" title="Voir détails projet" class="btn-edit">
                                                                         <i class="fa fa-info"></i>
                                                                     </a>
-                                                                    @if($projet->gagnant != null)
-                                                                        @if($projet->gagnant == "first")
-                                                                            Premier prix
-                                                                        @elseif($projet->gagnant == "second")
-                                                                            Deuxième prix
-                                                                        @else
-                                                                            Troisième prix
-                                                                        @endif
-                                                                    @else 
-                                                                        @if(Auth::user()->isAdmin())
-                                                                        <a href="{{ url('admin/projets/'.$projet->id."/gagnant") }}" style="width: 100px" title="Voir détails projet" class="btn-edit">
-                                                                            Gagnant
-                                                                        </a>
-                                                                        @endif
-                                                                    @endif
+                                                                    
                                                                 </div>
                                                             </td>
                                                         </tr>
