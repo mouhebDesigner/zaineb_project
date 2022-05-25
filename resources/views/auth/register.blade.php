@@ -31,11 +31,14 @@
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror
                             </div>
-                            
-                            
-                         
                             <div class="form_inputs">
                                 <input type="text" name="email" placeholder="Saisir votre email">
+                                @error('email')
+                                    <p class="error_input_message">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form_inputs">
+                                <textarea name="description" id="" cols="30" rows="10" placeholder="Saisir description"></textarea>
                                 @error('email')
                                     <p class="error_input_message">{{ $message }}</p>
                                 @enderror

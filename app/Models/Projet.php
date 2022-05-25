@@ -19,6 +19,9 @@ class Projet extends Model
     public function ressources(){
         return $this->hasMany(Ressource::class);
     }
+    public function commentaires(){
+        return $this->hasMany(Commentaire::class);
+    }
 
     public function concour(){
         return $this->belongsTo(Concour::class);
@@ -27,4 +30,6 @@ class Projet extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+
 }

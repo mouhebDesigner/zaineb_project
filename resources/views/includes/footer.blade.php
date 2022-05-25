@@ -3,9 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                        <img src="http://127.0.0.1:8000/front/assets//images/easy-learn.png" style="
+                        <img src="http://127.0.0.1:8000/front/logo.png" style="
                             position: relative;
                             right: 80px;
+                            width: 100px;
+                            heigt: auto;
                         " alt="">
                         
   

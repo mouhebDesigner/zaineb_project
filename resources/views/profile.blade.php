@@ -53,7 +53,15 @@
                     <h2> {{ Auth::user()->nom }}
                             {{ Auth::user()->prenom }}</h2>
                             <div class="team-skill mb-50">
-
+                        @if(Auth::user()->hasProjet())
+                            @if(Auth::user()->projet->gagnant == "first")
+                                <div class="alert alert-success">Félicitations, vous êtes un gagnant avec un première prix</div>
+                            @elseif(Auth::user()->projet->gagnant == "second")
+                                <div class="alert alert-success">Félicitations, vous êtes un gagnant avec un deuxième prix</div>
+                            @else 
+                                <div class="alert alert-success">Félicitations, vous êtes un gagnant avec un troisème prix</div>
+                            @endif  
+                        @endif
                         <h3 class="d-flex justify-content-between skill-title">
                             Mon projet
                         @if(Auth::user()->hasProjet())
@@ -71,6 +79,7 @@
                         </h3>
                         @if(Auth::user()->hasProjet())
                             {{ Auth::user()->projet->titre }} <br>
+                            
                             <a href="{{ url('download/'.Auth::user()->projet->id.'/prototype') }}">
                                 Fichier prototype
                             </a><br>
@@ -83,10 +92,18 @@
                         @endif
                     </div>
                     <h5>Description</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                        tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Nam liber tempor
-                        cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat</p>
+                    @if(Auth::user()->hasProjet())
+                            {{ Auth::user()->projet->description }}
+                    @endif
+                            
+                    @if(Auth::user()->hasProjet())
+                        <h2>Les commentaires de projet</h2>
+                        @foreach(Auth::user()->projet->commentaires()->get() as $comment)
+                            <p>{{ $comment->description_prototype }}</p>
+                            <p>{{ $comment->description_bmc }}</p>
+                            <p>{{ $comment->description_planAffaire }}</p>
+                        @endforeach
+                    @endif
                     
                 </div>
             </div>

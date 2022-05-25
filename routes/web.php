@@ -69,7 +69,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Contact admin
 Route::resource('contact', ContactController::class);
 
-
 Route::get('download/{id}', function($id){
     $resource = Resource::find($id);
     $filepath = public_path().$resource->path;
