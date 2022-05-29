@@ -79,7 +79,6 @@
                         </h3>
                         @if(Auth::user()->hasProjet())
                             {{ Auth::user()->projet->titre }} <br>
-                            
                             <a href="{{ url('download/'.Auth::user()->projet->id.'/prototype') }}">
                                 Fichier prototype
                             </a><br>

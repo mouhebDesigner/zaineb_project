@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->enum('genre', ['male', 'female']);
             $table->string('avatar')->nullable();
             $table->string('adresse')->nullable();
-            $table->string('description')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ["etudiant", "admin", "jury"]);
