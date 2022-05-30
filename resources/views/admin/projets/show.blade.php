@@ -155,6 +155,7 @@
                                                         @endif
                                                         <span class="username">
                                                             <a href="#">
+                                                                
                                                                 {{ App\Models\User::where('id',$member->user_id)->first()->nom }}
                                                                 {{ App\Models\User::where('id',$member->user_id)->first()->prenom }}
                                                             </a>
