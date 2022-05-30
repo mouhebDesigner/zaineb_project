@@ -146,7 +146,7 @@
                                                 <h4>Membre de groupe</h4>
                                                 @foreach(App\Models\Member::where('projet_id', $projet->id)->get() as $member)
                                                     <div class="user-block">
-                                                        @if(App\Models\User::where('id',$member->id)->first()->avatar != null)
+                                                        @if(App\Models\User::where('id',$member->user_id)->first()->avatar != null)
                                                         <img class="img-circle img-bordered-sm"
                                                             src="{{ asset('storage/'.App\Models\User::where('id',$member->id)->first()->avatar) }}" alt="">
                                                         @else
@@ -155,8 +155,8 @@
                                                         @endif
                                                         <span class="username">
                                                             <a href="#">
-                                                                {{ App\Models\User::where('id',$member->id)->first()->nom }}
-                                                                {{ App\Models\User::where('id',$member->id)->first()->prenom }}
+                                                                {{ App\Models\User::where('id',$member->user_id)->first()->nom }}
+                                                                {{ App\Models\User::where('id',$member->user_id)->first()->prenom }}
                                                             </a>
                                                         </span>
                                                     </div>

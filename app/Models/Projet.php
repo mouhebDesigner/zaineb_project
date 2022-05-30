@@ -19,6 +19,9 @@ class Projet extends Model
     public function ressources(){
         return $this->hasMany(Ressource::class);
     }
+    public function members(){
+        return $this->hasMany(Member::class);
+    }
     public function commentaires(){
         return $this->hasMany(Commentaire::class);
     }

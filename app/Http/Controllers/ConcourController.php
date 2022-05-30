@@ -60,4 +60,37 @@ class ConcourController extends Controller
 
         return redirect('concours/'.$request->concour_id)->with('participer', 'Vous avez participé au concour avec succée');
     }
+    public function update(ProjetRequest $request, $id){
+
+        $projet = Projet::find($id);
+
+        $projet->titre = $request->titre;
+        $projet->description = $request->description;
+        if($request->hasFile('prototype')){
+            $projet->prototype =  $request->prototype->store('resources');
+        }
+        if($request->hasFile('bmc')){
+            $projet->bmc =  $request->bmc->store('resources');
+        }
+        if($request->hasFile('planAffaire')){
+            $projet->planAffaire =  $request->planAffaire->store('resources');
+        }
+
+        $projet->save();
+
+        foreach($projet->members()->get() as $member)
+        {
+            $member->delete();
+        }
+        foreach($request->members as $user){
+            $member = new Member();
+    
+            $member->projet_id = $projet->id;
+            $member->user_id = $user;
+    
+            $member->save();
+        }
+
+        return redirect('concours/'.$projet->concour->id)->with('participer', 'Vous avez participé au concour avec succée');
+    }
 }

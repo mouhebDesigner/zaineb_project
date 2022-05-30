@@ -47,6 +47,7 @@ Route::get('profile', function(){
 Route::get('concours/{id}', [ConcourEtudiant::class, 'show']);
 Route::get('concour/{id}/participer', [ConcourEtudiant::class, 'participer'])->middleware('auth');
 Route::post('participer', [ConcourEtudiant::class, 'store']);
+Route::put('participer/{id}', [ConcourEtudiant::class, 'update']);
 Route::get('/', function () {
     return view('welcome');
 });
